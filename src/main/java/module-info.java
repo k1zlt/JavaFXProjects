@@ -12,4 +12,6 @@ module uca.org.javafx {
     exports uca.org.javafx.EnhancedTipCalculator;
     opens uca.org.javafx.BMICalculator to javafx.fxml;
     exports uca.org.javafx.BMICalculator;
+    opens uca.org.javafx.TargetHeartRateCalculator to javafx.fxml;
+    exports uca.org.javafx.TargetHeartRateCalculator;
 }
