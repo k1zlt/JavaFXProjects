@@ -8,4 +8,6 @@ module uca.org.javafx {
 
     opens uca.org.javafx.TipCalculator to javafx.fxml;
     exports uca.org.javafx.TipCalculator;
+    opens uca.org.javafx.EnhancedTipCalculator to javafx.fxml;
+    exports uca.org.javafx.EnhancedTipCalculator;
 }

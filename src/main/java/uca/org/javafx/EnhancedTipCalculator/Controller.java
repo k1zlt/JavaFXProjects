@@ -1,4 +1,4 @@
-package uca.org.javafx.TipCalculator;
+package uca.org.javafx.EnhancedTipCalculator;
 
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
@@ -15,23 +15,25 @@ import java.text.NumberFormat;
 
 public class Controller {
 
-    private static final NumberFormat currency =
+    public BigDecimal tipPercentage = new BigDecimal(0.15);
+    public static final NumberFormat currency =
             NumberFormat.getCurrencyInstance();
-    private static final NumberFormat percent =
+    public static final NumberFormat percent =
             NumberFormat.getPercentInstance();
-
-    private BigDecimal tipPercentage = new BigDecimal(0.15);
     @FXML
     private TextField amountTextField;
 
     @FXML
-    private Button calculateBtn;
+    private Button calculateButton;
+
+    @FXML
+    private TextField numberTextField;
 
     @FXML
     private Label percentLabel;
 
     @FXML
-    private Slider slider;
+    private Slider percentSlider;
 
     @FXML
     private TextField tipTextField;
@@ -44,18 +46,21 @@ public class Controller {
         try {
             BigDecimal amount = new BigDecimal(amountTextField.getText());
             BigDecimal tip = amount.multiply(tipPercentage);
-            BigDecimal total = amount.add(tip);
+            BigDecimal number = new BigDecimal(numberTextField.getText());
+            BigDecimal total = amount.add(tip).divide(number);
 
             tipTextField.setText(currency.format(tip));
             totalTextField.setText(currency.format(total));
-        } catch(NumberFormatException ex) {
+        } catch (NumberFormatException ex) {
             amountTextField.setText("Enter amount");
             amountTextField.selectAll();
-            amountTextField.requestFocus();        }
+            amountTextField.requestFocus();
+        }
     }
-    void initialize() {
+
+    public void initialize() {
         currency.setRoundingMode(RoundingMode.HALF_UP);
-        slider.valueProperty().addListener(
+        percentSlider.valueProperty().addListener(
                 new ChangeListener<Number>() {
                     @Override
                     public void changed(ObservableValue<? extends Number> observable, Number oldValue, Number newValue) {
