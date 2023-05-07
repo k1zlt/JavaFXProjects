@@ -28,9 +28,9 @@ public class Controller {
             BigDecimal weight = new BigDecimal(weightTextField.getText());
             BigDecimal height = new BigDecimal(heightTextField.getText()).divide(BigDecimal.valueOf(100));
             BigDecimal bmi = weight.divide(height.pow(2), RoundingMode.HALF_UP);
-            if (this.isEnglish) {
-                bmi = bmi.multiply(BigDecimal.valueOf(703));
-            }
+//            if (!metricRadioBtn.isSelected()) {
+//                bmi = bmi.multiply(BigDecimal.valueOf(2.20462)).divide();
+//            }
             bmiTextField.setText(bmi.toString());
             if (bmi.compareTo(BigDecimal.valueOf(18.5)) < 0) {
                 resultTextField.setText("UnderWeight");
@@ -44,7 +44,7 @@ public class Controller {
             }
         }
         catch(Exception ex){
-            System.out.println("Blyyyyy");
+            System.out.println("Error");
         }
     }
 
@@ -54,7 +54,11 @@ public class Controller {
     }
 
     public void getSystem(ActionEvent event) {
-        if (metricRadioBtn.isSelected()) this.isEnglish = true;
-        this.isEnglish = false;
+        if (metricRadioBtn.isSelected()) {
+            this.isEnglish = false;
+        }
+        else {
+            this.isEnglish = true;
+        }
     }
 }
