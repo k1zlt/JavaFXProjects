@@ -16,4 +16,8 @@ module uca.org.javafx {
     exports uca.org.javafx.TargetHeartRateCalculator;
     opens uca.org.javafx.PainterApp to javafx.fxml;
     exports uca.org.javafx.PainterApp;
+    opens uca.org.javafx.ContactsApp to javafx.fxml;
+    exports uca.org.javafx.ContactsApp;
+    opens uca.org.javafx.ContactsAppModification to javafx.fxml;
+    exports uca.org.javafx.ContactsAppModification;
 }
