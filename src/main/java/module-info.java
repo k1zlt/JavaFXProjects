@@ -22,4 +22,6 @@ module uca.org.javafx {
     exports uca.org.javafx.ContactsAppModification;
     opens uca.org.javafx.TipCalculatorModification to javafx.fxml;
     exports uca.org.javafx.TipCalculatorModification;
+    opens uca.org.javafx.AdvancedColorChooser to javafx.fxml;
+    exports uca.org.javafx.AdvancedColorChooser;
 }
