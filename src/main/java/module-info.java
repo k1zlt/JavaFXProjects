@@ -1,6 +1,7 @@
 module uca.org.javafx {
     requires javafx.controls;
     requires javafx.fxml;
+    requires javafx.web;
 
 
     opens uca.org.javafx to javafx.fxml;
@@ -24,4 +25,6 @@ module uca.org.javafx {
     exports uca.org.javafx.TipCalculatorModification;
     opens uca.org.javafx.AdvancedColorChooser to javafx.fxml;
     exports uca.org.javafx.AdvancedColorChooser;
+    opens uca.org.javafx.WebBrowser to javafx.fxml;
+    exports uca.org.javafx.WebBrowser;
 }
