@@ -20,4 +20,6 @@ module uca.org.javafx {
     exports uca.org.javafx.ContactsApp;
     opens uca.org.javafx.ContactsAppModification to javafx.fxml;
     exports uca.org.javafx.ContactsAppModification;
+    opens uca.org.javafx.TipCalculatorModification to javafx.fxml;
+    exports uca.org.javafx.TipCalculatorModification;
 }
